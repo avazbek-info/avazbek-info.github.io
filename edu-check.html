@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отправка формы...</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .spinner {
+            border: 8px solid #e0e0e0;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 16px;
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<form id="autoForm" action="https://russia-edu.minobrnauki.gov.ru/" method="POST">
+    <input type="hidden" name="registrationNumber" value="TJK-12518/25">
+    <input type="hidden" name="email" value="eshmurodov.avazbek@mail.ru">
+    <input type="hidden" name="adcopy_challenge" value="yjzkdpcc">
+    <input type="hidden" name="adcopy_response" value="hnwmli">
+</form>
+
+<div class="loader">
+    <div class="spinner"></div>
+    <div class="loading-text">Пожалуйста, подождите...</div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.getElementById('autoForm').submit();
+    };
+</script>
+</body>
+</html>
